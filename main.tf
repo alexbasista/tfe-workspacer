@@ -11,15 +11,20 @@ provider "tfe" {
     hostname = "tfe.is.hashicorpdemo.com"
 }
 
+data "tfe_team" "sms" {
+  name         = "sms"
+  organization = "winterfell"
+}
+
 ### --- ws --- ###
 resource "tfe_workspace" "appname-aws-webtier-1" {
   name         = "appname-aws-webtier-1"
   organization = "winterfell"
 }
 
-resource "tfe_team_access" "test" {
+resource "tfe_team_access" "testrbac" {
   access       = "read"
-  team_id      = tfe_team.sms.id
+  team_id      = data.tfe_team.sms.id
   workspace_id = tfe_workspace.appname-aws-webtier-1.id
 }
 
