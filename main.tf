@@ -56,7 +56,7 @@ resource "tfe_variable" "testvar3" {
 resource "tfe_variable" "testvar4" {
   key          = "AWS_ACCESS_KEY_ID"
   value        = "asdfadsfdsafdsafsdaasdfasdf"
-  category     = "ev"
+  category     = "env"
   workspace_id = tfe_workspace.appname-aws-database-1.id
   description  = "a useful description"
   sensitive    = true
