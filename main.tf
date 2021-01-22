@@ -54,7 +54,7 @@ resource "tfe_workspace" "appname-aws-database-1" {
 
 resource "tfe_variable" "vault_token" {
   key          = "VAULT_TOKEN"
-  value        = var.vault_token
+  value        = "aasdfasfdsafdsasadf"
   category     = "env"
   workspace_id = tfe_workspace.appname-aws-database-1.id
   description  = "a useful description"
