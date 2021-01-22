@@ -17,7 +17,7 @@ resource "tfe_workspace" "appname-aws-webtier-1" {
   organization = "winterfell"
 }
 
-resource "tfe_variable" "test" {
+resource "tfe_variable" "testvar1" {
   key          = "my_key_name"
   value        = "my_value_name"
   category     = "terraform"
@@ -32,7 +32,7 @@ resource "tfe_workspace" "appname-aws-middleware-1" {
   organization = "winterfell"
 }
 
-resource "tfe_variable" "test" {
+resource "tfe_variable" "testvar2" {
   key          = "my_key_name"
   value        = "my_value_name"
   category     = "terraform"
@@ -46,7 +46,7 @@ resource "tfe_workspace" "appname-aws-database-1" {
   organization = "winterfell"
 }
 
-resource "tfe_variable" "test" {
+resource "tfe_variable" "testvar3" {
   key          = "my_key_name"
   value        = "my_value_name"
   category     = "terraform"
