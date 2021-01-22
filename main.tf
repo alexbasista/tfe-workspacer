@@ -17,6 +17,12 @@ resource "tfe_workspace" "appname-aws-webtier-1" {
   organization = "winterfell"
 }
 
+resource "tfe_team_access" "test" {
+  access       = "read"
+  team_id      = tfe_team.sms.id
+  workspace_id = tfe_workspace.appname-aws-webtier-1.id
+}
+
 resource "tfe_variable" "testvar1" {
   key          = "my_key_name"
   value        = "my_value_name"
@@ -24,6 +30,7 @@ resource "tfe_variable" "testvar1" {
   workspace_id = tfe_workspace.appname-aws-webtier-1.id
   description  = "a useful description"
 }
+
 
 ### --- ws --- ###
 resource "tfe_workspace" "appname-aws-middleware-1" {
@@ -45,17 +52,9 @@ resource "tfe_workspace" "appname-aws-database-1" {
   organization = "winterfell"
 }
 
-resource "tfe_variable" "testvar3" {
-  key          = "my_key_name"
-  value        = "my_value_name"
-  category     = "terraform"
-  workspace_id = tfe_workspace.appname-aws-database-1.id
-  description  = "a useful description"
-}
-
-resource "tfe_variable" "testvar4" {
-  key          = "AWS_ACCESS_KEY_ID"
-  value        = "asdfadsfdsafdsafsdaasdfasdf"
+resource "tfe_variable" "vault_token" {
+  key          = "VAULT_TOKEN"
+  value        = var.vault_token
   category     = "env"
   workspace_id = tfe_workspace.appname-aws-database-1.id
   description  = "a useful description"
