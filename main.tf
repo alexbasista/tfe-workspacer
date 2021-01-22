@@ -20,3 +20,8 @@ resource "tfe_workspace" "appname-aws-middleware-1" {
   name         = "appname-aws-middleware-1"
   organization = "winterfell"
 }
+
+resource "tfe_workspace" "appname-aws-database-1" {
+  name         = "appname-aws-database-1"
+  organization = "winterfell"
+}
