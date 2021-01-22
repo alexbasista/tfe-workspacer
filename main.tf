@@ -25,7 +25,6 @@ resource "tfe_variable" "testvar1" {
   description  = "a useful description"
 }
 
-
 ### --- ws --- ###
 resource "tfe_workspace" "appname-aws-middleware-1" {
   name         = "appname-aws-middleware-1"
@@ -52,4 +51,13 @@ resource "tfe_variable" "testvar3" {
   category     = "terraform"
   workspace_id = tfe_workspace.appname-aws-database-1.id
   description  = "a useful description"
+}
+
+resource "tfe_variable" "testvar4" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "asdfadsfdsafdsafsdaasdfasdf"
+  category     = "ev"
+  workspace_id = tfe_workspace.appname-aws-database-1.id
+  description  = "a useful description"
+  sensitive    = true
 }
